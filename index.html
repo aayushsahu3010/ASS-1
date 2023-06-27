@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment</title>
+    <style>
+        /* Styling for the left panel */
+        .left-panel {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #b09797;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .left-panel ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .left-panel li {
+            margin-bottom: 10px;
+        }
+
+        .left-panel a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .left-panel a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for the content area */
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left-panel">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#information">Information</a></li>
+            <li><a href="#guide">Guide</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="home">
+            <h2>Home</h2>
+            <p> Welcome to home section  </p>
+        </div>
+
+        <div id="contact">
+            <h2>Contact</h2>
+            <p>Our contact section is designed to provide you with a convenient way to get in touch with us. Whether you have a question, feedback, or need assistance, we're here to help. In the contact section, you'll find a simple and user-friendly form where you can submit your contact information and message.</p>
+        </div>
+
+        <div id="information">
+            <h2>Information</h2>
+            <p>Welcome to our information section, where you can find a wealth of valuable resources and details about our products, services, and company. This section serves as a comprehensive knowledge hub, providing you with the information you need to make informed decisions. Whether you're a new customer looking to learn more about our offerings or an existing client seeking specific details, you'll find a wide range of articles, guides, FAQs, and other informative materials to explore</p>
+        </div>
+
+        <div id="guide">
+            <h2>Guide</h2>
+            <p>Welcome to our guide section, your go-to resource for step-by-step instructions and comprehensive guides on various topics. Whether you're a beginner or an experienced individual seeking detailed guidance, our guides are designed to assist you every step of the way. From getting started with a new software application to mastering complex techniques, our guides provide clear explanations, practical examples, and actionable tips. </p>
+        </div>
+    </div>
+
+    <script>
+
+        const links = document.querySelectorAll('.left-panel a');
+        const contentSections = document.querySelectorAll('.content > div');
+
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.getAttribute('href').substring(1);
+
+                contentSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
